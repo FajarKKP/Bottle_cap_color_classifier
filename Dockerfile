@@ -3,29 +3,25 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# ---- Minimal system dependencies ----
+# ---- System dependencies ----
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# ---- Upgrade pip ----
-RUN pip install --no-cache-dir --upgrade pip
-
-# ---- Install CPU-only PyTorch first so that poetry skip it ----
-RUN pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
-
 # ---- Install Poetry ----
-RUN pip install --no-cache-dir poetry
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir poetry
 
 # ---- Copy dependency files ----
 COPY pyproject.toml poetry.lock ./
 
-# ---- Configure Poetry to avoid virtualenv ----
-RUN poetry config virtualenvs.create false
+# ---- Install CPU-only PyTorch first ----
+RUN pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
 
-# ---- Install remaining runtime dependencies ONLY ----
-RUN poetry install --only main --no-interaction --no-ansi --no-root
+# ---- Disable Poetry virtualenv and install remaining dependencies ----
+RUN poetry config virtualenvs.create false \
+    && poetry install --only main --no-interaction --no-ansi --no-root --without torch
 
 # ---- Copy project files ----
 COPY . .
