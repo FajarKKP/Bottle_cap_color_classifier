@@ -1,0 +1,19 @@
+
+image 1/1 D:\Passion\Inventor\Code\Bottle_cap_color_classifier\dataset\sample.jpg: 256x416 13 otherss, 3 light_blues, 2 dark_blues, 59.3ms
+Speed: 2.9ms preprocess, 59.3ms inference, 4.6ms postprocess per image at shape (1, 3, 256, 416)
+Results saved to [1mD:\Passion\Inventor\Code\Bottle_cap_color_classifier\runs\detect\predict2[0m
+Inference completed. Results saved in D:\Passion\Inventor\Code\Bottle_cap_color_classifier\runs\inference
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\Passion\Inventor\Code\Bottle_cap_color_classifier\bsort\cli.py", line 33, in <module>
+    main()
+  File "D:\Passion\Inventor\Code\Bottle_cap_color_classifier\bsort\cli.py", line 28, in main
+    run_inference(args.config, args.image, args.save_dir)
+  File "D:\Passion\Inventor\Code\Bottle_cap_color_classifier\bsort\infer.py", line 74, in run_inference
+    "box_data": [
+                ^
+  File "D:\Passion\Inventor\Code\Bottle_cap_color_classifier\bsort\infer.py", line 80, in <listcomp>
+    for x1, y1, x2, y2, conf, cls in boxes.xyxy.cpu().numpy()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 6, got 4)

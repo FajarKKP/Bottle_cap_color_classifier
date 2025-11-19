@@ -1,12 +1,13 @@
 """
 Training module for Bottle Cap Color Classifier using Ultralytics YOLO.
 
-Supports toggling WandB logging via the configuration file.
+Supports toggling WandB logging via the configuration file and prompts login if needed.
 """
 
 from typing import Any, Dict
 import yaml
 from ultralytics import YOLO
+import wandb
 
 
 def load_config(config_path: str) -> Dict[str, Any]:
@@ -34,7 +35,20 @@ def run_training(config_path: str) -> None:
     cfg = load_config(config_path)
 
     # Toggle WandB logging
-    use_wandb: bool = cfg.get("use_wandb", True)
+    if cfg.get("use_wandb", False):
+        try:
+            # Check if already logged in
+            wandb.require("service")
+        except wandb.errors.UsageError:
+            print("You are not logged into WandB. Please follow instructions to login:")
+            wandb.login()  # prompts user in terminal
+
+        wandb.init(
+            project=cfg.get("wandb_project", "bsort_project"),
+            name=cfg.get("wandb_run_name", "bsort_run"),
+            config=cfg,
+            reinit=True
+        )
 
     model = YOLO(cfg["model_name"])  # e.g., "yolov8n.pt"
 
@@ -46,11 +60,14 @@ def run_training(config_path: str) -> None:
         lr0=cfg["learning_rate"],
         device=cfg.get("device", "cpu"),
         project="runs",
-        name=cfg.get("run_name", "bcap_train"),
+        name=cfg.get("run_name", "bsort_train"),
         pretrained=cfg.get("pretrained", True),
         verbose=True,
         val=True,
-        loggers="wandb" if use_wandb else None,
     )
 
     print("Training completed.")
+
+    # Finish WandB run if used
+    if cfg.get("use_wandb", False):
+        wandb.finish()

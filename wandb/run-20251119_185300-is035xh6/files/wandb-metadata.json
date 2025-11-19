@@ -1,0 +1,45 @@
+{
+  "os": "Windows-10-10.0.26100-SP0",
+  "python": "CPython 3.11.7",
+  "startedAt": "2025-11-19T18:53:00.713571Z",
+  "args": [
+    "infer",
+    "--config",
+    "settings.yaml",
+    "--image",
+    "dataset/sample.jpg"
+  ],
+  "program": "-m bsort.cli",
+  "git": {
+    "remote": "https://github.com/FajarKKP/Bottle_cap_color_classifier.git",
+    "commit": "96ddac2b977fa87f7a199a56af57ff8b177594c3"
+  },
+  "email": "fajarputra4231@gmail.com",
+  "root": "D:\\Passion\\Inventor\\Code\\Bottle_cap_color_classifier",
+  "host": "DESKTOP-LH3NLQQ",
+  "executable": "D:\\Passion\\Inventor\\Code\\Bottle_cap_color_classifier\\.venv\\Scripts\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce GTX 1050",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "981327671296",
+      "used": "206041948160"
+    }
+  },
+  "memory": {
+    "total": "8428498944"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce GTX 1050",
+      "memoryTotal": "4294967296",
+      "cudaCores": 640,
+      "architecture": "Pascal",
+      "uuid": "GPU-8e31acd6-aa1c-fb5e-6092-5b6ed1a9c4ee"
+    }
+  ],
+  "cudaVersion": "12.7",
+  "writerId": "1753mvw8zhughdtk47fe3ykr60qij0qg"
+}

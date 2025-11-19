@@ -1,0 +1,88 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            d2xcwgxhg8fihbn0jcpbkpem753b9fir:
+                args:
+                    - infer
+                    - --config
+                    - settings.yaml
+                    - --image
+                    - dataset/sample.jpg
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "12.7"
+                disk:
+                    /:
+                        total: "981327671296"
+                        used: "206041391104"
+                email: fajarputra4231@gmail.com
+                executable: D:\Passion\Inventor\Code\Bottle_cap_color_classifier\.venv\Scripts\python.exe
+                git:
+                    commit: 96ddac2b977fa87f7a199a56af57ff8b177594c3
+                    remote: https://github.com/FajarKKP/Bottle_cap_color_classifier.git
+                gpu: NVIDIA GeForce GTX 1050
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Pascal
+                      cudaCores: 640
+                      memoryTotal: "4294967296"
+                      name: NVIDIA GeForce GTX 1050
+                      uuid: GPU-8e31acd6-aa1c-fb5e-6092-5b6ed1a9c4ee
+                host: DESKTOP-LH3NLQQ
+                memory:
+                    total: "8428498944"
+                os: Windows-10-10.0.26100-SP0
+                program: -m bsort.cli
+                python: CPython 3.11.7
+                root: D:\Passion\Inventor\Code\Bottle_cap_color_classifier
+                startedAt: "2025-11-19T18:51:11.215619Z"
+                writerId: d2xcwgxhg8fihbn0jcpbkpem753b9fir
+        m: []
+        python_version: 3.11.7
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+            "3":
+                - 13
+                - 16
+            "4": 3.11.7
+            "5": 0.23.0
+            "8":
+                - 3
+            "10":
+                - 20
+            "12": 0.23.0
+            "13": windows-amd64
+batch_size:
+    value: 1
+conf_threshold:
+    value: 0.25
+data_yaml:
+    value: dataset/data.yaml
+device:
+    value: cpu
+epochs:
+    value: 1
+img_size:
+    value: 416
+iou_threshold:
+    value: 0.45
+learning_rate:
+    value: 0.001
+model_name:
+    value: yolov8n.pt
+pretrained:
+    value: true
+run_name:
+    value: bsort_experiment
+use_wandb:
+    value: true
+wandb_project:
+    value: wandb_bsort_project
+wandb_run_name:
+    value: wandb_bsort_experiment
+weights_path:
+    value: model/yolov8nano_8200.pt

@@ -1,18 +1,21 @@
 # ------------------ Model ------------------ #
 model_name: yolov8n.pt          # base YOLO model
-dataset_yaml: dataset/data.yaml    # path to YOLO dataset YAML
+data_yaml: "dataset/data.yaml"    # path to YOLO dataset YAML
 
 # ------------------ Training ------------------ #
-epochs: 10
-batch_size: 16
-img_size: 640
+epochs: 1
+batch_size: 1
+img_size: 416
 learning_rate: 0.001
 device: cpu
-run_name: bcap_experiment
+run_name: bsort_experiment
 pretrained: true
 use_wandb: true
+wandb_project: "wandb_bsort_project"
+wandb_run_name: "wandb_bsort_experiment"
+
 
 # ------------------ Inference ------------------ #
-weights_path: weights/bcap_best.pt
+weights_path: model/yolov8nano_8200.pt
 conf_threshold: 0.25
 iou_threshold: 0.45
