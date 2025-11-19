@@ -4,11 +4,13 @@ Inference module for Bottle Cap Color Classifier using Ultralytics YOLO.
 Supports toggling WandB logging via the configuration file.
 """
 
+import os
 from typing import Any, Dict
+
 import yaml
 from ultralytics import YOLO
+
 import wandb
-import os
 
 
 def load_config(config_path: str) -> Dict[str, Any]:

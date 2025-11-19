@@ -3,8 +3,9 @@ Command-line interface for Bottle Cap Color Classifier (bsort)
 """
 
 import argparse
-from bsort.train import run_training
+
 from bsort.infer import run_inference
+from bsort.train import run_training
 
 
 def main():

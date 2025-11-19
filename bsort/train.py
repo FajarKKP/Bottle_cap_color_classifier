@@ -5,8 +5,10 @@ Supports toggling WandB logging via the configuration file and prompts login if 
 """
 
 from typing import Any, Dict
+
 import yaml
 from ultralytics import YOLO
+
 import wandb
 
 
