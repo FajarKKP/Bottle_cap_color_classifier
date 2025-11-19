@@ -47,13 +47,13 @@ def run_training(config_path: str) -> None:
             project=cfg.get("wandb_project", "bsort_project"),
             name=cfg.get("wandb_run_name", "bsort_run"),
             config=cfg,
-            reinit=True
+            reinit=True,
         )
 
     model = YOLO(cfg["model_name"])  # e.g., "yolov8n.pt"
 
     model.train(
-        data=cfg["data_yaml"],              # path to dataset YAML
+        data=cfg["data_yaml"],  # path to dataset YAML
         epochs=cfg["epochs"],
         batch=cfg["batch_size"],
         imgsz=cfg["img_size"],
