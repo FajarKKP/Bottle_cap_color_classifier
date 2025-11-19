@@ -2,16 +2,18 @@
 name = "bsort"
 version = "0.1.0"
 description = "Bottle Cap Color Classifier CLI with training and inference."
-authors = ["Your Name <you@example.com>"]
+authors = ["Fajar KKP <f.kenichi.kp@gmail.com>"]
 readme = "README.md"
 packages = [{ include = "bsort" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
-ultralytics = "^8.0"
+python = ">=3.11,<3.15"
+ultralytics = "^8.3.229"
 opencv-python = "*"
 numpy = "*"
 pyyaml = "*"
+torch = "^2.9.1"
+wandb = "^0.15.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
@@ -24,7 +26,6 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 # ------------------ Tool Configs ------------------ #
-
 [tool.black]
 line-length = 88
 target-version = ['py311']
