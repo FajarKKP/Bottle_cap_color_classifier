@@ -12,10 +12,17 @@ ultralytics = "^8.3.229"
 opencv-python = "*"
 numpy = "*"
 pyyaml = "*"
-torch = "^2.9.1"
 wandb = "^0.15.4"
 
-[tool.poetry.dev-dependencies]
+# Use *CPU* version of PyTorch (much smaller, avoids CUDA)
+torch = { version = "^2.9.1", source = "pytorch-cpu" }
+
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+
+# ------------------ Development dependencies ------------------ #
+[tool.poetry.group.dev.dependencies]
 pytest = "*"
 black = "*"
 isort = "*"

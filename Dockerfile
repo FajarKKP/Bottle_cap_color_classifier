@@ -1,24 +1,29 @@
-# Base image
-FROM python:3.11-slim
+# ---- Base image ----
+FROM python:3.11-slim AS base
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+# ---- System dependencies (minimal) ----
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy poetry files first for dependency caching
-COPY pyproject.toml poetry.lock* /app/
+# ---- Install Poetry ----
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir poetry
 
-# Upgrade pip and install poetry
-RUN pip install --upgrade pip && pip install poetry
+# ---- Copy only dependency files first ----
+COPY pyproject.toml poetry.lock ./
 
-# Install dependencies without creating a virtual environment
+# ---- Install dependencies WITHOUT venv ----
+# And use CPU-only PyTorch wheels
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+    && poetry config installer.no-binary ':all:' false \
+    && poetry install --no-interaction --no-ansi --no-root
 
-# Copy the rest of the project
-COPY . /app
+# ---- Copy app source ----
+COPY . .
 
-# Set entrypoint for CLI
+# ---- Default runtime entrypoint ----
 ENTRYPOINT ["python", "-m", "bsort.cli"]
