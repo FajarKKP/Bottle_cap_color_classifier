@@ -19,7 +19,7 @@ COPY pyproject.toml poetry.lock ./
 
 # ---- Install only runtime dependencies without venv ----
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-dev --no-interaction --no-ansi --no-root
+    && poetry install --only main --no-interaction --no-ansi --no-root
 
 # ---- Force CPU-only PyTorch (optional, safe) ----
 RUN pip install --no-cache-dir torch==2.9.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
