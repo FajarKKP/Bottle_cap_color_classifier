@@ -4,12 +4,10 @@ Training module for Bottle Cap Color Classifier using Ultralytics YOLO.
 Supports toggling WandB logging via the configuration file and prompts login if needed.
 """
 
-from typing import Any, Dict
-
 from ultralytics import YOLO
 
 import wandb
-from bsort.utils import load_config
+from bsort.utils import load_config, setup_wandb
 
 
 def run_training(config_path: str) -> None:
@@ -22,22 +20,7 @@ def run_training(config_path: str) -> None:
         None
     """
     cfg = load_config(config_path)
-
-    # Toggle WandB logging
-    if cfg.get("use_wandb", False):
-        try:
-            # Check if already logged in
-            wandb.require("service")
-        except wandb.errors.UsageError:
-            print("You are not logged into WandB. Please follow instructions to login:")
-            wandb.login()  # prompts user in terminal
-
-        wandb.init(
-            project=cfg.get("wandb_project", "bsort_project"),
-            name=cfg.get("wandb_run_name", "bsort_run"),
-            config=cfg,
-            reinit=True,
-        )
+    setup_wandb(cfg)
 
     model = YOLO(cfg["model_name"])  # e.g., "yolov8n.pt"
 

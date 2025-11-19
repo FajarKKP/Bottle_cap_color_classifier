@@ -5,12 +5,11 @@ Supports toggling WandB logging via the configuration file.
 """
 
 import os
-from typing import Any, Dict
 
 from ultralytics import YOLO
 
 import wandb
-from bsort.utils import load_config
+from bsort.utils import load_config, setup_wandb
 
 
 def run_inference(
@@ -27,21 +26,7 @@ def run_inference(
         None
     """
     cfg = load_config(config_path)
-
-    # Toggle WandB logging
-    if cfg.get("use_wandb", False):
-        try:
-            wandb.require("service")
-        except wandb.errors.UsageError:
-            print("You are not logged into WandB. Please follow instructions to login:")
-            wandb.login()
-
-        wandb.init(
-            project=cfg.get("wandb_project", "bsort_project"),
-            name=cfg.get("wandb_run_name", "bsort_infer"),
-            config=cfg,
-            reinit=True,
-        )
+    setup_wandb(cfg)
 
     # Load YOLO model
     model = YOLO(cfg["weights_path"])
