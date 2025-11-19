@@ -2,8 +2,6 @@
 Utility functions for Bottle Cap Color Classifier.
 """
 
-from typing import Dict
-
 import yaml
 
 import wandb
