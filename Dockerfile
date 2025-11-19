@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ---- Upgrade pip ----
 RUN pip install --no-cache-dir --upgrade pip
 
-# ---- Install CPU-only PyTorch first so that poertry skip it ----
-RUN pip install --no-cache-dir torch==2.9.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+# ---- Install CPU-only PyTorch first so that poetry skip it ----
+RUN pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
 
 # ---- Install Poetry ----
 RUN pip install --no-cache-dir poetry
