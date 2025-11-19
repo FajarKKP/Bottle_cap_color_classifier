@@ -4,23 +4,21 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Copy project files
-COPY . /app
-
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Upgrade pip
-RUN pip install --upgrade pip
+# Copy poetry files first for dependency caching
+COPY pyproject.toml poetry.lock* /app/
 
-# Install Python dependencies
-RUN pip install poetry
-RUN poetry install
+# Upgrade pip and install poetry
+RUN pip install --upgrade pip && pip install poetry
 
-# If not using poetry, you could also:
-# RUN pip install ultralytics opencv-python numpy pyyaml
+# Install dependencies without creating a virtual environment
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
+
+# Copy the rest of the project
+COPY . /app
 
 # Set entrypoint for CLI
 ENTRYPOINT ["python", "-m", "bsort.cli"]
