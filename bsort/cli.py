@@ -9,6 +9,8 @@ from bsort.train import run_training
 
 
 def main():
+    """CLI entry point for running training/inference commands."""
+
     parser = argparse.ArgumentParser(
         description="BSort: Bottle Cap Color Classifier CLI"
     )

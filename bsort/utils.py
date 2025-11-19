@@ -4,6 +4,8 @@ Utility functions for Bottle Cap Color Classifier.
 
 from typing import Dict
 
+import yaml
+
 
 def get_color_mapping() -> Dict[int, str]:
     """Return a mapping from class IDs to color names.
@@ -34,3 +36,8 @@ def map_prediction_to_color(class_id: int) -> str:
     """
     mapping = get_color_mapping()
     return mapping.get(class_id, "unknown")
+
+
+def load_config(path: str):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)

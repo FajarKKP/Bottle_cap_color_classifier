@@ -7,23 +7,10 @@ Supports toggling WandB logging via the configuration file.
 import os
 from typing import Any, Dict
 
-import yaml
 from ultralytics import YOLO
 
 import wandb
-
-
-def load_config(config_path: str) -> Dict[str, Any]:
-    """Load YAML configuration file.
-
-    Args:
-        config_path: Path to the YAML config file.
-
-    Returns:
-        Dictionary of configuration values.
-    """
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+from bsort.utils import load_config
 
 
 def run_inference(
@@ -83,7 +70,7 @@ def run_inference(
             class_labels = (
                 results[0].names
                 if isinstance(results[0].names, dict)
-                else {i: n for i, n in enumerate(results[0].names)}
+                else dict(enumerate(results[0].names))
             )
 
             wandb_boxes = {

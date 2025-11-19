@@ -6,23 +6,10 @@ Supports toggling WandB logging via the configuration file and prompts login if 
 
 from typing import Any, Dict
 
-import yaml
 from ultralytics import YOLO
 
 import wandb
-
-
-def load_config(config_path: str) -> Dict[str, Any]:
-    """Load YAML configuration file.
-
-    Args:
-        config_path: Path to the YAML config file.
-
-    Returns:
-        Dictionary of configuration values.
-    """
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+from bsort.utils import load_config
 
 
 def run_training(config_path: str) -> None:
