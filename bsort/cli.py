@@ -43,7 +43,7 @@ def main():
         run_training(args.config)
     elif args.command == "infer":
         results = run_inference(
-            model_path=r"D:\Passion\Inventor\Code\Bottle_cap_color_classifier\model\yolov8nano_8200.pt",  # adjust if needed
+            model_path="weights/bcap_best.pt",  # adjust if needed
             image_path=args.image
         )
         print("Inference results:", results)
