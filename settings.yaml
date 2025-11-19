@@ -1,0 +1,18 @@
+# ------------------ Model ------------------ #
+model_name: yolov8n.pt          # base YOLO model
+data_yaml: dataset/data.yaml    # path to YOLO dataset YAML
+
+# ------------------ Training ------------------ #
+epochs: 50
+batch_size: 16
+img_size: 640
+learning_rate: 0.001
+device: cpu
+run_name: bcap_experiment
+pretrained: true
+use_wandb: true
+
+# ------------------ Inference ------------------ #
+weights_path: weights/bcap_best.pt
+conf_threshold: 0.25
+iou_threshold: 0.45
