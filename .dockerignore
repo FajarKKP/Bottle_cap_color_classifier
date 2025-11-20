@@ -1,35 +1,36 @@
-# Python cache and virtual environments
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-*.py[cod]
 *.pytest_cache/
 *.mypy_cache/
+
+# Virtual environments
 .venv/
 venv/
 .env
 
-# Poetry cache and temp files
+# Poetry internals
 .poetry/
 
-# Exclude all toml/lock files except the ones needed for build
+# Ignore all TOML/LOCK except project config
 *.toml
 *.lock
 !pyproject.toml
 !poetry.lock
 
-# IDE / editor files
+# IDE / Editor
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# Git files
+# Git
 .git/
 .gitignore
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
@@ -41,5 +42,9 @@ dist/
 build/
 *.egg-info/
 
-# Jupyter notebooks checkpoints
+# Notebook checkpoints
 .ipynb_checkpoints/
+
+# Training artifacts 
+runs/
+wandb/
