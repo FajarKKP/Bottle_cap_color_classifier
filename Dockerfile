@@ -21,8 +21,6 @@ RUN poetry config virtualenvs.create false \
     && poetry install --no-root --no-interaction --no-ansi --only main \
     && rm -rf /root/.cache/pypoetry/* /root/.cache/pip/*
 
-
-
 # ---- Stage 2: Final Runtime Image ----
 FROM python:3.11-slim AS runtime
 

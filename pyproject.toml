@@ -12,19 +12,15 @@ numpy = "<2.0"
 pyyaml = "*"
 opencv-python-headless = "*"
 
-# NOTE:
-# Torch is NOT listed here to avoid double installation.
-# It is installed manually in Docker.
-
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
 black = "*"
 isort = "*"
 pylint = "*"
-ultralytics = "^8.3.229"
-wandb = "^0.15.12"
-# For full training GUI support (optional):
-# opencv-python = "*"
+
+# Optional training / heavy dependencies
+[tool.poetry.extras]
+training = ["ultralytics", "wandb", "torch"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
