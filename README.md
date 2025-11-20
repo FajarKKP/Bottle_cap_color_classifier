@@ -133,11 +133,8 @@ mAP@0.5-0.95: 0.55
 Inference
 
 Inference done using the image from test set
-
 Input image size for inference: 320
-
 Inference Speed: ~25 ms on CPU
-
 CPU Spec used for inference:
 | Feature                         | Value                                                             |
 | ------------------------------- | ----------------------------------------------------------------- |
