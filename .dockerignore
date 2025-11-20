@@ -1,0 +1,41 @@
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.pytest_cache/
+*.mypy_cache/
+.venv/
+venv/
+.env
+
+# Poetry cache and lock files not needed in final build
+.poetry/
+*.lock
+*.toml
+
+# IDE / editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Git files
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
