@@ -10,10 +10,14 @@ __pycache__/
 venv/
 .env
 
-# Poetry cache and lock files not needed in final build
+# Poetry cache and temp files
 .poetry/
-*.lock
+
+# Exclude all toml/lock files except the ones needed for build
 *.toml
+*.lock
+!pyproject.toml
+!poetry.lock
 
 # IDE / editor files
 .vscode/
