@@ -18,8 +18,9 @@ COPY pyproject.toml poetry.lock ./
 
 # Configure Poetry: no virtualenv, only install main group
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --only main \
+    && poetry install --no-root --no-interaction --no-ansi --only main \
     && rm -rf /root/.cache/pypoetry/* /root/.cache/pip/*
+
 
 
 # ---- Stage 2: Final Runtime Image ----
