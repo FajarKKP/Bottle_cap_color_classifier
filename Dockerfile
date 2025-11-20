@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Poetry
+# ---- Install Poetry (latest stable) ----
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir poetry
+    && pip install --no-cache-dir "poetry>=1.5.1"
 
 # Copy only dependency files first for caching
 COPY pyproject.toml poetry.lock ./
