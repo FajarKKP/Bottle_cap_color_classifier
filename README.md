@@ -119,19 +119,19 @@ Model Overview
 
 Evaluation Metrics
 
--Train
+-Train Result
 | Metric          | Value |
 |-----------------|-------|
 | mAP@0.5         | 0.82  |
 | mAP@0.5–0.95    | 0.55  |
 
--Inference
+-Inference Result
 | Metric          | Value |
 |-----------------|-------|
 | mAP@0.5         | 0.71  |
 | mAP@0.5–0.95    | 0.55  |
 
-Inference
+More info on during inference 
 - **Dataset:** Test set  
 - **Input image size:** 320  
 - **Inference Speed:** ~23 ms on CPU  
