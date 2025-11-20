@@ -105,8 +105,38 @@ docker build -t bsort:latest .
 ## CI/CD Pipeline
 This project includes a GitHub Actions workflow file (.github/workflows/ci.yml) that runs linting, tests, and Docker builds automatically 
 
-## Project Result
+## Project Results
+###Datset Overview
+Number of images: 27
+Classes: 3 (Others, light blue, dark blue)
+Train / Valid / Test split: 22 / 3 / 2
 
+
+###Model O:verview
+Model: Yolov5-nano
+Pretrained Weights: COCO
+Input image size: 416 (Training) -> 320 (Inference)
+
+### Evaluation Metrics
+mAP@0.5: 0.82
+mAP@0.5-0.95: 0.55
+
+###Inference
+Inference done using the image from test set
+Input image size for inference: 320
+Inference Speed: ~25 ms on CPU
+CPU Spec used for inference:
+| Feature                         | Value                                                             |
+| ------------------------------- | ----------------------------------------------------------------- |
+| CPU                             | Intel® Xeon® CPU @ 2.20 GHz                                       |
+| Physical cores                  | 1                                                                 |
+| Logical cores (threads)         | 2 (hyperthreaded)                                                 |
+| Cache                           | 56 320 KB (L3)                                                    |
+| Max frequency                   | 2.2 GHz                                                           |
+| Supported extensions            | SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, AVX, AVX2, FMA, AES, etc. |
+| Total RAM (reported separately) | ~12–13 GB in Colab free                                           |
+
+For more detailed experimentation progress, it can be seen here: https://wandb.ai/f-kenichi-kp-none/train
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
