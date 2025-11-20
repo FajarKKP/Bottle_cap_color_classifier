@@ -19,41 +19,36 @@
 - Optional training dependencies installed only when needed
 
 ## Project Structure
+root/
+├── .github/
+│ └── workflows/
+│  └── ci.yml
+│
+├── bsort/
+│ ├── cli.py
+│ ├── train.py
+│ ├── infer.py
+│ └── utils.py
+│
+├── dataset/
+│ ├── train/
+│ ├── test/
+│ ├── valid/
+│ └── data.yaml
+│
+├── task 1 cap detection/
+│ ├── bottle_cap_classifier.ipynb
+│ └── bottle_cap_data.ods
+│
+├── test/
+│ └── unit_test.py
+│
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── pyproject.toml
+└── settings.yaml
 
-root
-|
-|---> .github/
-|     |---> workflows/
-|        |---> ci.yml
-|
-|---> bsort/
-|     |
-|     |---> cli.py
-|     |--- train.py
-|     |---> infer.py
-|     |---> utils.py
-|
-|---> dataset/
-|     |
-|     |---> train
-|     |---> test
-|     |---> valid
-|     |---> data.yaml
-|
-|---> task 1 cap detection
-|     |
-|     |---> bottle_cap_classifier.ipynb
-|     |---> bottle_cap_data.ods
-|
-|---> test/
-|    |
-|    |---> unit_test.py
-|
-|---> .dockerignore
-|---> .gitignore
-|---> Dockerfile
-|---> pyproject.toml
-|---> settings.yaml
 
 ## Instalation and setup
 
