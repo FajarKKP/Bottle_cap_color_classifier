@@ -107,6 +107,9 @@ This project includes a GitHub Actions workflow file (.github/workflows/ci.yml) 
 ## Project Result
 
 
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 
 
