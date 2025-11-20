@@ -10,24 +10,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
-# ---- Install Poetry (latest stable) ----
+# Install Poetry (stable) and pip
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir "poetry>=1.5.1"
 
-# Copy only dependency files first for caching
+# Copy dependency files for caching
 COPY pyproject.toml poetry.lock ./
 
-# Disable virtualenv creation and install ONLY runtime dependencies (exclude dev)
+# Disable virtualenvs and install ONLY runtime dependencies
 RUN poetry config virtualenvs.create false \
-    && poetry export -f requirements.txt --without-hashes --without-urls --without-credentials --only main > requirements_runtime.txt \
-    && pip install --no-cache-dir -r requirements_runtime.txt
+    && poetry install --no-dev --no-interaction --no-ansi \
+    && rm -rf /root/.cache/pypoetry/* /root/.cache/pip/*
 
 # ---- Stage 2: Final runtime image ----
 FROM python:3.11-slim AS runtime
 
 WORKDIR /app
 
-# Minimal system dependencies
+# Minimal system dependencies for runtime
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
     && rm -rf /var/lib/apt/lists/*
@@ -39,7 +39,7 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 # Copy project files
 COPY . .
 
-# Install CPU-only PyTorch separately
+# Install CPU-only PyTorch separately (if needed)
 RUN pip install --no-cache-dir torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
 
 # Set default entrypoint
