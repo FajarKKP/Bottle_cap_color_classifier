@@ -1,0 +1,9 @@
+    [MASTER]
+# Treat wandb and ultralytics as extension packages with dynamic members
+extension-pkg-allow-list=wandb,ultralytics
+
+# Disable warnings caused by optional / dynamic imports
+disable=
+    E0401,  # Unable to import (for optional packages not installed)
+    I1101   # No member (dynamic attributes in C-extension or runtime modules)
+
