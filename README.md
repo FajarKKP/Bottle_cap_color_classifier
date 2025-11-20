@@ -104,6 +104,9 @@ docker build -t bsort:latest .
 ## CI/CD Pipeline
 This project includes a GitHub Actions workflow file (.github/workflows/ci.yml) that runs linting, tests, and Docker builds automatically 
 
+## Project Result
+
+
 
 
 
