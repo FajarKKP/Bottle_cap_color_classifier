@@ -131,7 +131,7 @@ Evaluation Metrics
 | mAP@0.5         | 0.71  |
 | mAP@0.5–0.95    | 0.55  |
 
-More info on during inference 
+More info during inference 
 - **Dataset:** Test set  
 - **Input image size:** 320  
 - **Inference Speed:** ~23 ms on CPU  
