@@ -106,25 +106,38 @@ docker build -t bsort:latest .
 This project includes a GitHub Actions workflow file (.github/workflows/ci.yml) that runs linting, tests, and Docker builds automatically 
 
 ## Project Results
-###Datset Overview
+
+Datset Overview
+
 Number of images: 27
+
 Classes: 3 (Others, light blue, dark blue)
+
 Train / Valid / Test split: 22 / 3 / 2
 
 
-###Model O:verview
+Model Overview
+
 Model: Yolov5-nano
+
 Pretrained Weights: COCO
+
 Input image size: 416 (Training) -> 320 (Inference)
 
-### Evaluation Metrics
+Evaluation Metrics
+
 mAP@0.5: 0.82
+
 mAP@0.5-0.95: 0.55
 
-###Inference
+Inference
+
 Inference done using the image from test set
+
 Input image size for inference: 320
+
 Inference Speed: ~25 ms on CPU
+
 CPU Spec used for inference:
 | Feature                         | Value                                                             |
 | ------------------------------- | ----------------------------------------------------------------- |
