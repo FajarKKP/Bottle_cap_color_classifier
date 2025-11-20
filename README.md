@@ -118,15 +118,23 @@ Model Overview
 - **Input image size:** 416 (Training) → 320 (Inference)  
 
 Evaluation Metrics
+
+-Train
 | Metric          | Value |
 |-----------------|-------|
 | mAP@0.5         | 0.82  |
 | mAP@0.5–0.95    | 0.55  |
 
+-Inference
+| Metric          | Value |
+|-----------------|-------|
+| mAP@0.5         | 0.71  |
+| mAP@0.5–0.95    | 0.55  |
+
 Inference
 - **Dataset:** Test set  
 - **Input image size:** 320  
-- **Inference Speed:** ~25 ms on CPU  
+- **Inference Speed:** ~23 ms on CPU  
 
 
 CPU Spec used for inference:
