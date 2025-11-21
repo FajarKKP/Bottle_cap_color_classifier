@@ -56,6 +56,8 @@ root/
 
 ## Instalation and setup
 
+Using Poetry:
+
 Clone the repo
 ```bash
 git clone https://github.com/<your-username>/bsort.git
@@ -70,6 +72,26 @@ poetry install --only main
 Or the whole instalation (with ultralytics, etc)
 ```bash
 poetry install --with training
+```
+
+Or install through requirements.txt:
+
+Clone the repo
+```bash
+git clone https://github.com/FajarKKP/Bottle_cap_color_classifier.git
+cd Bottle_cap_color_classifier
+```
+
+Create a virtual environment (optional but recommended)
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux/macOS
+venv\Scripts\activate      # Windows
+```
+
+Install main dependencies
+```bash
+pip install -r requirements.txt
 ```
 
 ## To use the CLI
