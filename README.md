@@ -74,7 +74,8 @@ Or the whole instalation (with ultralytics, etc)
 poetry install --with training
 ```
 
-Or install through requirements.txt:
+
+Another way is to install through requirements.txt all the main dependencies:
 
 Clone the repo
 ```bash
