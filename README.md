@@ -60,8 +60,8 @@ Using Poetry:
 
 Clone the repo
 ```bash
-git clone https://github.com/<your-username>/bsort.git
-cd bsort
+git clone https://github.com/FajarKKP/Bottle_cap_color_classifier.git
+cd Bottle_cap_color_classifier
 ```
 
 You have the options to do lightweight installation (the minimum dependencies)
