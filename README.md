@@ -109,7 +109,7 @@ python -m bsort.cli train --config settings.yaml
 
 Inference
 ```bash
-python -m bsort.cli infer --source sample.jpg
+python -m bsort.cli infer --image dataset\sample.jpg --config settings.yaml
 ```
 
 Help
