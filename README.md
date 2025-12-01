@@ -74,6 +74,11 @@ Next you can install ultralytics manually. This is done seperately due to github
 pip install ultralytics
 ```
 
+As an addition, you can install wandb to keep track of your training progress (this is optional, can be toggled on/off on the settings.yaml).
+```bash
+pip install wandb
+```
+
 Then you are ready to use the bsort.
 
 Another way is to install through requirements.txt all the main dependencies:
