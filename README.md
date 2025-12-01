@@ -103,7 +103,7 @@ You can adjust the settings for training / inference in root/settings.yaml
 ## Example of usage
 Train
 ```bash
-python -m bsort.cli train --config bsort/config.yaml
+python -m bsort.cli train --config settings.yaml
 ```
 
 Inference
