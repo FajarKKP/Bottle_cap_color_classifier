@@ -64,16 +64,17 @@ git clone https://github.com/FajarKKP/Bottle_cap_color_classifier.git
 cd Bottle_cap_color_classifier
 ```
 
-You have the options to do lightweight installation (the minimum dependencies)
+You have the options to do main installation (the minimum dependencies)
 ```bash
 poetry install --only main
 ```
 
-Or the whole instalation (with ultralytics, etc)
+Next you can install ultralytics manually. This is done seperately due to github does not have enough space to load ultralytics on it.
 ```bash
-poetry install --with training
+pip install ultralytics
 ```
 
+Then you are ready to use the bsort.
 
 Another way is to install through requirements.txt all the main dependencies:
 
