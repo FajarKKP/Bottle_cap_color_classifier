@@ -19,3 +19,8 @@ wandb_run_name: "wandb_bsort_experiment"
 weights_path: model/yolov8nano_8200.pt
 conf_threshold: 0.25
 iou_threshold: 0.45
+
+# ------------------ Camera Inference ------------------ #
+model_path: model/yolov8nano_8200.pt
+confidence_threshold: 0.25
+camera_index: 0
