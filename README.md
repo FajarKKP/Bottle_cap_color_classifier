@@ -16,7 +16,7 @@
 - Type hints and Google-style docstrings
 - CLI entrypoint: `python -m bsort.cli`
 - CI pipeline including formatting, linting, tests, and Docker build
-- Lightweight runtime image for inference
+- Lightweight runtime image for inference (can be done on a test dataset or live inference using a camera)
 
 
 ## Project Structure
@@ -102,7 +102,7 @@ pip install -r requirements.txt
 ```
 
 ## To use the CLI
-The bsort can help you in training the model or to do inference
+The bsort can help you in training the model or to do inference. Inferencing here can be done towards a test set or live built-in camera.
 
 You can adjust the settings for training / inference in root/settings.yaml
 
@@ -115,6 +115,11 @@ python -m bsort.cli train --config settings.yaml
 Inference
 ```bash
 python -m bsort.cli infer --image dataset\sample.jpg --config settings.yaml
+```
+
+Built-in Camera Inference
+```bash
+python -m bsort.cli infer_with_camera --config settings.yaml
 ```
 
 Help
