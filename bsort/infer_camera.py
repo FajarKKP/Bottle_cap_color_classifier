@@ -5,6 +5,7 @@ Press 'q' to quit.
 
 import cv2
 from ultralytics import YOLO
+
 from bsort.utils import load_config
 
 
