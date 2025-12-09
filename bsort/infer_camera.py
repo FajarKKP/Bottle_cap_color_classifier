@@ -1,3 +1,5 @@
+# pylint: disable=no-member, too-many-locals
+
 """
 Real-time Bottle Cap Color Classifier using Ultralytics YOLO.
 Press 'q' to quit.
