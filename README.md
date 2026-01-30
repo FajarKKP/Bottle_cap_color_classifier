@@ -30,6 +30,7 @@ root/
 │   ├── cli.py
 │   ├── train.py
 │   ├── infer.py
+│   ├── infer_camera.py
 │   └── utils.py
 │
 ├── dataset/
